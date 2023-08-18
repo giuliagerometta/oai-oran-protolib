@@ -84,10 +84,12 @@ struct  _RANIndicationResponse
   ProtobufCMessage base;
   size_t n_param_map;
   RANParamMapEntry **param_map;
+  size_t n_ue_info;
+  UeInfoM **ue_info;
 };
 #define RAN_INDICATION_RESPONSE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ran_indication_response__descriptor) \
-    , 0,NULL }
+    , 0,NULL, 0,NULL }
 
 
 struct  _RANControlRequest
@@ -132,38 +134,29 @@ struct  _UeInfoM
    * this is to identify the ue
    */
   int32_t rnti;
-  /*
-   * specific ue's measurements (these will come from the gnb)
-   */
-  protobuf_c_boolean has_meas_type_1;
-  float meas_type_1;
-  protobuf_c_boolean has_meas_type_2;
-  float meas_type_2;
-  protobuf_c_boolean has_meas_type_3;
-  float meas_type_3;
-  /*
-   * specific ue's propoerties (these will be set by the xapp and sent to gnb)
-   */
-  protobuf_c_boolean has_prop_1;
-  protobuf_c_boolean prop_1;
-  protobuf_c_boolean has_prop_2;
-  float prop_2;
+  protobuf_c_boolean has_ue_rsrp;
+  float ue_rsrp;
+  protobuf_c_boolean has_ue_ber;
+  float ue_ber;
+  protobuf_c_boolean has_ue_mcs;
+  float ue_mcs;
 };
 #define UE_INFO_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_info_m__descriptor) \
-    , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+    , 0, 0, 0, 0, 0, 0, 0 }
 
 
 struct  _UeListM
 {
   ProtobufCMessage base;
   int32_t connected_ues;
+  int32_t allocated_prbs;
   size_t n_ue_info;
   UeInfoM **ue_info;
 };
 #define UE_LIST_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_list_m__descriptor) \
-    , 0, 0,NULL }
+    , 0, 0, 0,NULL }
 
 
 /* RANParamMapEntry methods */
