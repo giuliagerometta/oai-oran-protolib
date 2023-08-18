@@ -60,11 +60,11 @@ message ue_info_m{
     //optional bool prop_1 = 5;
     //optional float prop_2 = 6;
 
-    optional float ue_rsrp=7;
-    optional float ue_ber=8;
-    optional float ue_mcs=9;
-
-    
+    optional float ue_rsrp=2;
+    optional float ue_ber_up=3;
+    optional float ue_ber_down=4;
+    optional float ue_mcs_up=5;
+    optional float ue_mcs_down=6;
 }
 
 message ue_list_m{

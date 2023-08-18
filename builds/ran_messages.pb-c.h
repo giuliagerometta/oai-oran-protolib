@@ -136,14 +136,18 @@ struct  _UeInfoM
   int32_t rnti;
   protobuf_c_boolean has_ue_rsrp;
   float ue_rsrp;
-  protobuf_c_boolean has_ue_ber;
-  float ue_ber;
-  protobuf_c_boolean has_ue_mcs;
-  float ue_mcs;
+  protobuf_c_boolean has_ue_ber_up;
+  float ue_ber_up;
+  protobuf_c_boolean has_ue_ber_down;
+  float ue_ber_down;
+  protobuf_c_boolean has_ue_mcs_up;
+  float ue_mcs_up;
+  protobuf_c_boolean has_ue_mcs_down;
+  float ue_mcs_down;
 };
 #define UE_INFO_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_info_m__descriptor) \
-    , 0, 0, 0, 0, 0, 0, 0 }
+    , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
 
 
 struct  _UeListM

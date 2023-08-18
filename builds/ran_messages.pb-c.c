@@ -603,7 +603,7 @@ const ProtobufCMessageDescriptor ran_message__descriptor =
   (ProtobufCMessageInit) ran_message__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[4] =
+static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[6] =
 {
   {
     "rnti",
@@ -619,7 +619,7 @@ static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[4] =
   },
   {
     "ue_rsrp",
-    7,
+    2,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_FLOAT,
     offsetof(UeInfoM, has_ue_rsrp),
@@ -630,24 +630,48 @@ static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[4] =
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "ue_ber",
-    8,
+    "ue_ber_up",
+    3,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_FLOAT,
-    offsetof(UeInfoM, has_ue_ber),
-    offsetof(UeInfoM, ue_ber),
+    offsetof(UeInfoM, has_ue_ber_up),
+    offsetof(UeInfoM, ue_ber_up),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "ue_mcs",
-    9,
+    "ue_ber_down",
+    4,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_FLOAT,
-    offsetof(UeInfoM, has_ue_mcs),
-    offsetof(UeInfoM, ue_mcs),
+    offsetof(UeInfoM, has_ue_ber_down),
+    offsetof(UeInfoM, ue_ber_down),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "ue_mcs_up",
+    5,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(UeInfoM, has_ue_mcs_up),
+    offsetof(UeInfoM, ue_mcs_up),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "ue_mcs_down",
+    6,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(UeInfoM, has_ue_mcs_down),
+    offsetof(UeInfoM, ue_mcs_down),
     NULL,
     NULL,
     0,             /* flags */
@@ -656,15 +680,16 @@ static const ProtobufCFieldDescriptor ue_info_m__field_descriptors[4] =
 };
 static const unsigned ue_info_m__field_indices_by_name[] = {
   0,   /* field[0] = rnti */
-  2,   /* field[2] = ue_ber */
-  3,   /* field[3] = ue_mcs */
+  3,   /* field[3] = ue_ber_down */
+  2,   /* field[2] = ue_ber_up */
+  5,   /* field[5] = ue_mcs_down */
+  4,   /* field[4] = ue_mcs_up */
   1,   /* field[1] = ue_rsrp */
 };
-static const ProtobufCIntRange ue_info_m__number_ranges[2 + 1] =
+static const ProtobufCIntRange ue_info_m__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 7, 1 },
-  { 0, 4 }
+  { 0, 6 }
 };
 const ProtobufCMessageDescriptor ue_info_m__descriptor =
 {
@@ -674,10 +699,10 @@ const ProtobufCMessageDescriptor ue_info_m__descriptor =
   "UeInfoM",
   "",
   sizeof(UeInfoM),
-  4,
+  6,
   ue_info_m__field_descriptors,
   ue_info_m__field_indices_by_name,
-  2,  ue_info_m__number_ranges,
+  1,  ue_info_m__number_ranges,
   (ProtobufCMessageInit) ue_info_m__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
