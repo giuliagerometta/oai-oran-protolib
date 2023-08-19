@@ -19,11 +19,6 @@ typedef struct _RANParamMapEntry RANParamMapEntry;
 typedef struct _RANIndicationRequest RANIndicationRequest;
 typedef struct _RANIndicationResponse RANIndicationResponse;
 typedef struct _RANControlRequest RANControlRequest;
-typedef struct _RANRsrp RANRsrp;
-typedef struct _RANBerUp RANBerUp;
-typedef struct _RANBerDown RANBerDown;
-typedef struct _RANMcsUp RANMcsUp;
-typedef struct _RANMcsDown RANMcsDown;
 typedef struct _RANMessage RANMessage;
 typedef struct _UeInfoM UeInfoM;
 typedef struct _UeListM UeListM;
@@ -35,12 +30,7 @@ typedef enum _RANMessageType {
   RAN_MESSAGE_TYPE__SUBSCRIPTION = 1,
   RAN_MESSAGE_TYPE__INDICATION_REQUEST = 2,
   RAN_MESSAGE_TYPE__INDICATION_RESPONSE = 3,
-  RAN_MESSAGE_TYPE__CONTROL = 4,
-  RAN_MESSAGE_TYPE__RSRP = 5,
-  RAN_MESSAGE_TYPE__BER_UP = 6,
-  RAN_MESSAGE_TYPE__BER_DOWN = 7,
-  RAN_MESSAGE_TYPE__MCS_UP = 8,
-  RAN_MESSAGE_TYPE__MCS_DOWN = 9
+  RAN_MESSAGE_TYPE__CONTROL = 4
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(RAN_MESSAGE_TYPE)
 } RANMessageType;
 typedef enum _RANParameter {
@@ -113,71 +103,11 @@ struct  _RANControlRequest
     , 0,NULL }
 
 
-struct  _RANRsrp
-{
-  ProtobufCMessage base;
-  size_t n_ue_info;
-  UeInfoM **ue_info;
-};
-#define RAN_RSRP__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&ran_rsrp__descriptor) \
-    , 0,NULL }
-
-
-struct  _RANBerUp
-{
-  ProtobufCMessage base;
-  size_t n_ue_info;
-  UeInfoM **ue_info;
-};
-#define RAN_BER_UP__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&ran_ber_up__descriptor) \
-    , 0,NULL }
-
-
-struct  _RANBerDown
-{
-  ProtobufCMessage base;
-  size_t n_ue_info;
-  UeInfoM **ue_info;
-};
-#define RAN_BER_DOWN__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&ran_ber_down__descriptor) \
-    , 0,NULL }
-
-
-struct  _RANMcsUp
-{
-  ProtobufCMessage base;
-  size_t n_ue_info;
-  UeInfoM **ue_info;
-};
-#define RAN_MCS_UP__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&ran_mcs_up__descriptor) \
-    , 0,NULL }
-
-
-struct  _RANMcsDown
-{
-  ProtobufCMessage base;
-  size_t n_ue_info;
-  UeInfoM **ue_info;
-};
-#define RAN_MCS_DOWN__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&ran_mcs_down__descriptor) \
-    , 0,NULL }
-
-
 typedef enum {
   RAN_MESSAGE__PAYLOAD__NOT_SET = 0,
   RAN_MESSAGE__PAYLOAD_RAN_INDICATION_REQUEST = 2,
   RAN_MESSAGE__PAYLOAD_RAN_INDICATION_RESPONSE = 3,
-  RAN_MESSAGE__PAYLOAD_RAN_CONTROL_REQUEST = 4,
-  RAN_MESSAGE__PAYLOAD_RAN_RSRP = 5,
-  RAN_MESSAGE__PAYLOAD_RAN_BER_UP = 6,
-  RAN_MESSAGE__PAYLOAD_RAN_BER_DOWN = 7,
-  RAN_MESSAGE__PAYLOAD_RAN_MCS_UP = 8,
-  RAN_MESSAGE__PAYLOAD_RAN_MCS_DOWN = 9
+  RAN_MESSAGE__PAYLOAD_RAN_CONTROL_REQUEST = 4
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(RAN_MESSAGE__PAYLOAD)
 } RANMessage__PayloadCase;
 
@@ -190,11 +120,6 @@ struct  _RANMessage
     RANIndicationRequest *ran_indication_request;
     RANIndicationResponse *ran_indication_response;
     RANControlRequest *ran_control_request;
-    RANRsrp *ran_rsrp;
-    RANBerUp *ran_ber_up;
-    RANBerDown *ran_ber_down;
-    RANMcsUp *ran_mcs_up;
-    RANMcsDown *ran_mcs_down;
   };
 };
 #define RAN_MESSAGE__INIT \
@@ -314,101 +239,6 @@ RANControlRequest *
 void   ran_control_request__free_unpacked
                      (RANControlRequest *message,
                       ProtobufCAllocator *allocator);
-/* RANRsrp methods */
-void   ran_rsrp__init
-                     (RANRsrp         *message);
-size_t ran_rsrp__get_packed_size
-                     (const RANRsrp   *message);
-size_t ran_rsrp__pack
-                     (const RANRsrp   *message,
-                      uint8_t             *out);
-size_t ran_rsrp__pack_to_buffer
-                     (const RANRsrp   *message,
-                      ProtobufCBuffer     *buffer);
-RANRsrp *
-       ran_rsrp__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   ran_rsrp__free_unpacked
-                     (RANRsrp *message,
-                      ProtobufCAllocator *allocator);
-/* RANBerUp methods */
-void   ran_ber_up__init
-                     (RANBerUp         *message);
-size_t ran_ber_up__get_packed_size
-                     (const RANBerUp   *message);
-size_t ran_ber_up__pack
-                     (const RANBerUp   *message,
-                      uint8_t             *out);
-size_t ran_ber_up__pack_to_buffer
-                     (const RANBerUp   *message,
-                      ProtobufCBuffer     *buffer);
-RANBerUp *
-       ran_ber_up__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   ran_ber_up__free_unpacked
-                     (RANBerUp *message,
-                      ProtobufCAllocator *allocator);
-/* RANBerDown methods */
-void   ran_ber_down__init
-                     (RANBerDown         *message);
-size_t ran_ber_down__get_packed_size
-                     (const RANBerDown   *message);
-size_t ran_ber_down__pack
-                     (const RANBerDown   *message,
-                      uint8_t             *out);
-size_t ran_ber_down__pack_to_buffer
-                     (const RANBerDown   *message,
-                      ProtobufCBuffer     *buffer);
-RANBerDown *
-       ran_ber_down__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   ran_ber_down__free_unpacked
-                     (RANBerDown *message,
-                      ProtobufCAllocator *allocator);
-/* RANMcsUp methods */
-void   ran_mcs_up__init
-                     (RANMcsUp         *message);
-size_t ran_mcs_up__get_packed_size
-                     (const RANMcsUp   *message);
-size_t ran_mcs_up__pack
-                     (const RANMcsUp   *message,
-                      uint8_t             *out);
-size_t ran_mcs_up__pack_to_buffer
-                     (const RANMcsUp   *message,
-                      ProtobufCBuffer     *buffer);
-RANMcsUp *
-       ran_mcs_up__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   ran_mcs_up__free_unpacked
-                     (RANMcsUp *message,
-                      ProtobufCAllocator *allocator);
-/* RANMcsDown methods */
-void   ran_mcs_down__init
-                     (RANMcsDown         *message);
-size_t ran_mcs_down__get_packed_size
-                     (const RANMcsDown   *message);
-size_t ran_mcs_down__pack
-                     (const RANMcsDown   *message,
-                      uint8_t             *out);
-size_t ran_mcs_down__pack_to_buffer
-                     (const RANMcsDown   *message,
-                      ProtobufCBuffer     *buffer);
-RANMcsDown *
-       ran_mcs_down__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   ran_mcs_down__free_unpacked
-                     (RANMcsDown *message,
-                      ProtobufCAllocator *allocator);
 /* RANMessage methods */
 void   ran_message__init
                      (RANMessage         *message);
@@ -480,21 +310,6 @@ typedef void (*RANIndicationResponse_Closure)
 typedef void (*RANControlRequest_Closure)
                  (const RANControlRequest *message,
                   void *closure_data);
-typedef void (*RANRsrp_Closure)
-                 (const RANRsrp *message,
-                  void *closure_data);
-typedef void (*RANBerUp_Closure)
-                 (const RANBerUp *message,
-                  void *closure_data);
-typedef void (*RANBerDown_Closure)
-                 (const RANBerDown *message,
-                  void *closure_data);
-typedef void (*RANMcsUp_Closure)
-                 (const RANMcsUp *message,
-                  void *closure_data);
-typedef void (*RANMcsDown_Closure)
-                 (const RANMcsDown *message,
-                  void *closure_data);
 typedef void (*RANMessage_Closure)
                  (const RANMessage *message,
                   void *closure_data);
@@ -516,11 +331,6 @@ extern const ProtobufCMessageDescriptor ran_param_map_entry__descriptor;
 extern const ProtobufCMessageDescriptor ran_indication_request__descriptor;
 extern const ProtobufCMessageDescriptor ran_indication_response__descriptor;
 extern const ProtobufCMessageDescriptor ran_control_request__descriptor;
-extern const ProtobufCMessageDescriptor ran_rsrp__descriptor;
-extern const ProtobufCMessageDescriptor ran_ber_up__descriptor;
-extern const ProtobufCMessageDescriptor ran_ber_down__descriptor;
-extern const ProtobufCMessageDescriptor ran_mcs_up__descriptor;
-extern const ProtobufCMessageDescriptor ran_mcs_down__descriptor;
 extern const ProtobufCMessageDescriptor ran_message__descriptor;
 extern const ProtobufCMessageDescriptor ue_info_m__descriptor;
 extern const ProtobufCMessageDescriptor ue_list_m__descriptor;

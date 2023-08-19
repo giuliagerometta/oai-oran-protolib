@@ -5,11 +5,6 @@ enum RAN_message_type{
     INDICATION_REQUEST = 2;
     INDICATION_RESPONSE = 3;
     CONTROL = 4;
-    RSRP = 5;
-    BER_UP = 6; 
-    BER_DOWN = 7;
-    MCS_UP = 8;
-    MCS_DOWN = 9; 
 } 
 
 enum RAN_parameter{
@@ -40,26 +35,6 @@ message RAN_control_request{
     repeated RAN_param_map_entry target_param_map = 1;
 }
 
-message RAN_rsrp {
-  repeated ue_info_m ue_info = 1;
-} 
-
-message RAN_ber_up {
-  repeated ue_info_m ue_info = 1;
-} 
-
-message RAN_ber_down {
-  repeated ue_info_m ue_info = 1;
-}
-
-message RAN_mcs_up {
-  repeated ue_info_m ue_info = 1;
-} 
-
-message RAN_mcs_down {
-  repeated ue_info_m ue_info = 1;
-}
-
 /* MASTER RAN MESSAGE */
 
 message RAN_message{
@@ -68,11 +43,6 @@ message RAN_message{
         RAN_indication_request ran_indication_request = 2;
         RAN_indication_response ran_indication_response = 3;
         RAN_control_request ran_control_request = 4;
-        RAN_rsrp ran_rsrp = 5;
-        RAN_ber_up ran_ber_up = 6;
-        RAN_ber_down ran_ber_down = 7;
-        RAN_mcs_up ran_mcs_up = 8;
-        RAN_mcs_down ran_mcs_down = 9;
     }
 }
 
