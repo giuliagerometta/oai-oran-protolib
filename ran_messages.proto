@@ -65,6 +65,7 @@ message ue_info_m{
     optional float ue_ber_down=4;
     optional float ue_mcs_up=5;
     optional float ue_mcs_down=6;
+    optional float cell_load=7;
 }
 
 message ue_list_m{

@@ -144,10 +144,12 @@ struct  _UeInfoM
   float ue_mcs_up;
   protobuf_c_boolean has_ue_mcs_down;
   float ue_mcs_down;
+  protobuf_c_boolean has_cell_load;
+  float cell_load;
 };
 #define UE_INFO_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_info_m__descriptor) \
-    , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+    , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
 
 
 struct  _UeListM
