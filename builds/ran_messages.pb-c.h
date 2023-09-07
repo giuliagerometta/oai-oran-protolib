@@ -154,13 +154,14 @@ struct  _UeListM
 {
   ProtobufCMessage base;
   int32_t connected_ues;
-  int32_t allocated_prbs;
   size_t n_ue_info;
   UeInfoM **ue_info;
+  int32_t total_prbs;
+  int32_t allocated_prbs;
 };
 #define UE_LIST_M__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ue_list_m__descriptor) \
-    , 0, 0, 0,NULL }
+    , 0, 0,NULL, 0, 0 }
 
 
 /* RANParamMapEntry methods */
